@@ -1,0 +1,33 @@
+---
+import { SITE } from '../data/site'
+---
+
+<header class="w-full bg-white/95 border-b border-sky-100 backdrop-blur sticky top-0 z-50">
+  <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+    <!-- LOGO -->
+    <a href="/" class="flex items-center gap-2">
+      <img src="/logo.png" alt="Logo UCM - Sitio autorizado" class="h-10 md:h-12 object-contain" />
+    </a>
+
+    <!-- NAVIGATION -->
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-sky-900">
+      <a href="/" class="hover:text-sky-600 transition">Inicio</a>
+      <a href="/ucm-telefono" class="hover:text-sky-600 transition">Teléfono UCM</a>
+      <a href="/planes-ucm" class="hover:text-sky-600 transition">Planes UCM</a>
+      <a href="/rescate-medico-ucm" class="hover:text-sky-600 transition">Rescate Médico</a>
+    </nav>
+
+    <!-- MOBILE MENU (simple version) -->
+    <details class="md:hidden relative">
+      <summary class="cursor-pointer text-sky-900 font-semibold px-2 py-1"> ☰ </summary>
+      <div
+        class="absolute right-0 mt-2 w-40 bg-white border border-sky-100 rounded-xl shadow-lg py-2 text-sm"
+      >
+        <a href="/" class="block px-4 py-2 hover:bg-sky-50">Inicio</a>
+        <a href="/ucm-telefono" class="block px-4 py-2 hover:bg-sky-50">Teléfono UCM</a>
+        <a href="/planes-ucm" class="block px-4 py-2 hover:bg-sky-50">Planes UCM</a>
+        <a href="/rescate-medico-ucm" class="block px-4 py-2 hover:bg-sky-50">Rescate Médico</a>
+      </div>
+    </details>
+  </div>
+</header>

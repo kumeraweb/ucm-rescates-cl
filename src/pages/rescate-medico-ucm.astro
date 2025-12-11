@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { SITE, LINKS } from '../data/site'
+---
+
+<BaseLayout>
+  <main class="min-h-screen bg-white text-sky-900">
+    <!-- HERO -->
+    <section class="relative bg-sky-900 text-white py-20">
+      <div class="absolute inset-0 -z-10 opacity-30">
+        <img
+          src="/images/hero-ambulancia.jpg"
+          alt="Rescate Médico UCM - Ambulancias y Emergencias 24/7"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div class="mx-auto max-w-4xl px-4 text-center space-y-6">
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
+          Rescate Médico UCM · Emergencias y Atención Extrahospitalaria
+        </h1>
+        <p class="text-sky-100 max-w-2xl mx-auto text-sm md:text-base">
+          Conoce cómo funciona el rescate UCM, su cobertura, beneficios y cómo solicitar afiliación
+          inmediata mediante tu ejecutiva oficial {SITE.name}.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 pt-4">
+          <a
+            href={LINKS.wa()}
+            class="rounded-full bg-emerald-400 text-sky-900 font-semibold px-6 py-3 text-sm hover:bg-emerald-300 transition"
+          >
+            WhatsApp para afiliarse
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="py-12 bg-white">
+      <div class="mx-auto max-w-4xl px-4 space-y-4">
+        <h2 class="text-2xl font-semibold text-sky-900">¿Qué es el Rescate Médico UCM?</h2>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          El <strong>Rescate Médico UCM</strong> corresponde al servicio de atención extrahospitalaria
+          que realiza
+          <strong>Unidad Coronaria Móvil</strong> mediante ambulancias equipadas con personal clínico
+          para responder a <strong>emergencias de salud, riesgo vital y descompensaciones</strong>.
+        </p>
+        <p class="text-gray-700 text-sm">
+          Para utilizar este servicio es necesario estar afiliado a un <strong>Plan UCM</strong>, el
+          cual puede ser contratado directamente con tu ejecutiva oficial <strong
+            >{SITE.name}</strong
+          >.
+        </p>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="py-12 bg-sky-50">
+      <div class="mx-auto max-w-5xl px-4 space-y-6">
+        <h2 class="text-2xl font-semibold text-sky-900">¿Qué incluye el rescate médico?</h2>
+
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li>
+            • Ambulancias equipadas con personal clínico (técnicos, paramédicos o profesionales de
+            enfermería).
+          </li>
+          <li>• Evaluación inicial, estabilización y soporte básico de vida.</li>
+          <li>
+            • Traslado a un centro asistencial en caso de riesgo vital, según disponibilidad
+            regional.
+          </li>
+          <li>• Orientación telefónica y apoyo en situaciones de descompensación.</li>
+          <li>• Disponibilidad 24/7 en zonas autorizadas de Región Metropolitana y V Región.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CUANDO SE USA -->
+    <section class="py-12 bg-white">
+      <div class="mx-auto max-w-5xl px-4 space-y-6">
+        <h2 class="text-2xl font-semibold text-sky-900">
+          ¿Cuándo corresponde solicitar un rescate UCM?
+        </h2>
+
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li>
+            • Dolor torácico, dificultad respiratoria o síntomas compatibles con riesgo vital.
+          </li>
+          <li>• Desmayos, pérdida de conciencia o descompensaciones súbitas.</li>
+          <li>• Eventos traumáticos con posible compromiso de salud.</li>
+          <li>
+            • Situaciones donde se requiera evaluación clínica antes de acudir a un centro
+            asistencial.
+          </li>
+        </ul>
+
+        <p class="text-sm text-gray-700">
+          Este servicio está diseñado para <strong>emergencias</strong>. Para atenciones
+          programadas, exámenes o consultas, se utilizan los beneficios incluidos en los planes UCM
+          (según disponibilidad).
+        </p>
+      </div>
+    </section>
+
+    <!-- COMO AFILIARSE -->
+    <section class="py-12 bg-sky-50">
+      <div class="mx-auto max-w-4xl px-4 space-y-4">
+        <h2 class="text-2xl font-semibold text-sky-900">Cómo acceder al rescate UCM</h2>
+
+        <p class="text-sm text-gray-700">
+          Para utilizar el servicio de rescate, debes estar afiliado previamente a un plan UCM. La
+          afiliación es simple y rápida:
+        </p>
+
+        <ol class="text-sm text-gray-700 space-y-3">
+          <li>
+            <strong class="text-sky-900">1. Contacta a tu ejecutiva:</strong> Escríbele por WhatsApp o
+            realiza una llamada directa.
+          </li>
+          <li>
+            <strong class="text-sky-900">2. Validación de cobertura:</strong> Se confirma tu comuna dentro
+            de Región Metropolitana o V Región.
+          </li>
+          <li>
+            <strong class="text-sky-900">3. Selección del plan:</strong> Familiar (UF 0,59) o Senior (UF
+            1,00), según tus necesidades.
+          </li>
+          <li>
+            <strong class="text-sky-900">4. Activación:</strong> Una vez afiliado, puedes utilizar rescate
+            y beneficios asociados.
+          </li>
+        </ol>
+
+        <a
+          href={LINKS.wa()}
+          class="inline-flex mt-4 rounded-full bg-sky-700 text-white px-8 py-3 text-sm font-semibold hover:bg-sky-800 transition"
+        >
+          Afiliarse por WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-12 bg-white">
+      <div class="mx-auto max-w-5xl px-4 space-y-8">
+        <h2 class="text-2xl font-semibold text-sky-900">Preguntas frecuentes sobre Rescate UCM</h2>
+
+        <div class="space-y-4 text-sm text-gray-700">
+          <div>
+            <p class="font-semibold text-sky-900">¿El rescate tiene costo por evento?</p>
+            <p>
+              Generalmente está incluido dentro del plan contratado, dependiendo de las condiciones
+              vigentes.
+            </p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-sky-900">¿El rescate garantiza traslado?</p>
+            <p>
+              El equipo clínico evalúa la situación y determina si corresponde traslado a un centro
+              asistencial.
+            </p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-sky-900">¿El servicio opera en todo Chile?</p>
+            <p>
+              No. Actualmente se encuentra disponible en <strong>Región Metropolitana</strong> y zonas
+              autorizadas de <strong>V Región</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-16 bg-sky-900 text-white text-center">
+      <h2 class="text-2xl font-semibold">¿Necesitas afiliarte o resolver dudas?</h2>
+      <p class="text-sky-100 mt-2 text-sm max-w-xl mx-auto">
+        Tu ejecutiva oficial UCM {SITE.name} puede ayudarte con afiliación, cobertura y orientación ante
+        emergencias.
+      </p>
+
+      <div class="flex justify-center gap-4 mt-6">
+        <a
+          href={LINKS.wa()}
+          class="rounded-full bg-emerald-400 text-sky-900 px-8 py-3 text-sm font-semibold hover:bg-emerald-300 transition"
+        >
+          Escribir por WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

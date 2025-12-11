@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { SITE, LINKS } from '../data/site'
+---
+
+<BaseLayout>
+  <main class="min-h-screen bg-white text-sky-900">
+    <!-- HERO -->
+    <section class="relative bg-sky-900 text-white py-20">
+      <div class="absolute inset-0 -z-10 opacity-30">
+        <img
+          src="/images/hero-ambulancia.jpg"
+          alt="Planes UCM - Cobertura Familiar y Senior"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div class="mx-auto max-w-4xl px-4 text-center space-y-6">
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
+          Planes UCM · Familiar UF 0,59 · Senior UF 1,00
+        </h1>
+        <p class="text-sky-100 max-w-2xl mx-auto text-sm md:text-base">
+          Revisa los beneficios principales de cada plan UCM y afíliate mediante tu ejecutiva
+          oficial {SITE.name}.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 pt-4">
+          <a
+            href={LINKS.wa()}
+            class="rounded-full bg-emerald-400 text-sky-900 font-semibold px-6 py-3 text-sm hover:bg-emerald-300 transition"
+          >
+            Cotizar ahora por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="py-12 bg-white">
+      <div class="mx-auto max-w-4xl px-4 space-y-4">
+        <h2 class="text-2xl font-semibold text-sky-900">Planes disponibles en UCM</h2>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          UCM ofrece alternativas para familias, adultos mayores y personas que buscan apoyo
+          extrahospitalario con ambulancias, profesionales de salud y servicios complementarios.
+          Aquí puedes revisar los dos planes principales disponibles para afiliación mediante tu
+          ejecutiva oficial <strong>{SITE.name}</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- PLAN FAMILIAR -->
+    <section class="py-12 bg-sky-50">
+      <div class="mx-auto max-w-5xl px-4 space-y-8">
+        <div class="rounded-3xl border border-sky-100 bg-white p-6 md:p-10 shadow-sm">
+          <h2 class="text-2xl font-bold text-sky-900 mb-4">Plan Familiar UCM</h2>
+          <p class="text-xl font-semibold text-sky-900 mb-6">
+            UF 0,59 <span class="text-base font-normal text-sky-700">/ mensual</span>
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-10">
+            <div class="space-y-3 text-sm text-gray-700">
+              <p>
+                Diseñado para familias que buscan protección ante emergencias médicas y apoyo
+                extrahospitalario con ambulancias equipadas y personal clínico especializado.
+              </p>
+              <p>
+                Este plan incluye rescate por riesgo vital y beneficios adicionales según
+                disponibilidad regional.
+              </p>
+            </div>
+
+            <ul class="text-sm text-gray-700 space-y-2">
+              <li>• Rescate en ambulancia ante emergencias y riesgo vital</li>
+              <li>• Atenciones médicas programadas según cobertura vigente</li>
+              <li>• Servicios adicionales anuales (consultas, controles o procedimientos)</li>
+              <li>• Orientación remota por personal clínico</li>
+              <li>• Cobertura en zonas autorizadas de Región Metropolitana y V Región</li>
+            </ul>
+          </div>
+
+          <div class="mt-8 w-full flex justify-center">
+            <a
+              href={LINKS.wa()}
+              class="inline-flex items-center justify-center rounded-full bg-sky-700 px-8 py-3 text-sm font-semibold text-white hover:bg-sky-800 transition"
+            >
+              Cotizar Plan Familiar
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAN SENIOR -->
+    <section class="py-12 bg-white">
+      <div class="mx-auto max-w-5xl px-4 space-y-8">
+        <div class="rounded-3xl border border-sky-100 bg-sky-50 p-6 md:p-10 shadow-sm">
+          <h2 class="text-2xl font-bold text-sky-900 mb-4">Plan Senior UCM</h2>
+          <p class="text-xl font-semibold text-sky-900 mb-6">
+            UF 1,00 <span class="text-base font-normal text-sky-700">/ mensual</span>
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-10">
+            <div class="space-y-3 text-sm text-gray-700">
+              <p>
+                Especialmente diseñado para personas mayores que requieren mayor acompañamiento en
+                salud, integrando rescate, atenciones y beneficios orientados a control clínico.
+              </p>
+            </div>
+
+            <ul class="text-sm text-gray-700 space-y-2">
+              <li>• Rescate en ambulancia ante urgencias y descompensaciones</li>
+              <li>
+                • Controles médicos y consultas con copago preferente o sin costo según condiciones
+              </li>
+              <li>• Exámenes de laboratorio y radiología incluidos anualmente</li>
+              <li>• Beneficios adicionales para seguimiento de salud en adultos mayores</li>
+              <li>• Cobertura en Región Metropolitana y zonas autorizadas de V Región</li>
+            </ul>
+          </div>
+
+          <div class="mt-8 w-full flex justify-center">
+            <a
+              href={LINKS.wa()}
+              class="inline-flex items-center justify-center rounded-full bg-sky-800 px-8 py-3 text-sm font-semibold text-white hover:bg-sky-900 transition"
+            >
+              Cotizar Plan Senior
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARATIVA -->
+    <section class="py-12 bg-sky-50">
+      <div class="mx-auto max-w-5xl px-4 space-y-6">
+        <h2 class="text-2xl font-semibold text-sky-900">
+          Comparación rápida: Plan Familiar vs Plan Senior
+        </h2>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-sky-900 text-white text-left">
+                <th class="p-3">Característica</th>
+                <th class="p-3">Plan Familiar</th>
+                <th class="p-3">Plan Senior</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-700">
+              <tr class="border-b border-sky-100">
+                <td class="p-3">Rescate en ambulancia</td>
+                <td class="p-3">Sí</td>
+                <td class="p-3">Sí</td>
+              </tr>
+              <tr class="border-b border-sky-100">
+                <td class="p-3">Atenciones médicas programadas</td>
+                <td class="p-3">Limitadas según condiciones</td>
+                <td class="p-3">Más amplias y pensadas para adultos mayores</td>
+              </tr>
+              <tr class="border-b border-sky-100">
+                <td class="p-3">Exámenes incluidos</td>
+                <td class="p-3">No siempre incluidos</td>
+                <td class="p-3">Sí, según disponibilidad</td>
+              </tr>
+              <tr class="border-b border-sky-100">
+                <td class="p-3">Valor mensual</td>
+                <td class="p-3">UF 0,59</td>
+                <td class="p-3">UF 1,00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-16 bg-sky-900 text-white text-center">
+      <h2 class="text-2xl font-semibold">Habla con tu ejecutiva para elegir el plan adecuado</h2>
+      <p class="text-sky-100 mt-2 text-sm max-w-xl mx-auto">
+        Tu ejecutiva oficial UCM {SITE.name} puede orientarte según tus necesidades, comuna y situación
+        familiar.
+      </p>
+
+      <div class="flex justify-center gap-4 mt-6">
+        <a
+          href={LINKS.wa()}
+          class="rounded-full bg-emerald-400 text-sky-900 px-8 py-3 text-sm font-semibold hover:bg-emerald-300 transition"
+        >
+          Consultar por WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

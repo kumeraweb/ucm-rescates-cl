@@ -1,16 +1,370 @@
 ---
-
+// src/pages/index.astro
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { SITE, LINKS } from '../data/site'
+import { UCM_SEO } from '../data/ucm-seo'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <main class="min-h-screen">
+    <!-- HERO -->
+    <section
+      id="hero"
+      class="relative overflow-hidden bg-gradient-to-b from-sky-900 via-sky-800 to-sky-900 text-white"
+    >
+      <!-- HERO BACKGROUND IMAGE -->
+      <div class="absolute inset-0 -z-20">
+        <img
+          src="/images/ambulance.jpg"
+          alt="Ambulancia UCM lista para atención de emergencias"
+          class="w-full h-full object-cover opacity-30"
+        />
+      </div>
+      <div
+        class="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-16 md:flex-row md:items-center md:py-24"
+      >
+        <div class="flex-1 space-y-6">
+          <p class="text-sm uppercase tracking-[0.2em] text-sky-200">
+            Ejecutiva oficial UCM · {SITE.city}
+          </p>
+          <h1 class="text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
+            {UCM_SEO.headings.H1}
+          </h1>
+          <p class="text-base text-sky-100 md:text-lg">
+            Afíliate hoy con <span class="font-semibold">{SITE.name}</span> y recibe orientación directa
+            para contratar tu Plan UCM, con cobertura extrahospitalaria 24/7 para ti y tu familia.
+          </p>
+
+          <div class="flex flex-wrap gap-3">
+            <a
+              href={LINKS.wa()}
+              data-cta="whatsapp"
+              class="inline-flex items-center justify-center rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-sky-950 shadow-lg shadow-emerald-500/40 transition hover:bg-emerald-300"
+            >
+              WhatsApp directo con {SITE.name}
+            </a>
+            <a
+              href={LINKS.call()}
+              data-cta="llamar"
+              class="inline-flex items-center justify-center rounded-full border border-sky-200/50 px-6 py-3 text-sm font-semibold text-sky-50 hover:bg-sky-800/60"
+            >
+              Llamar ahora
+            </a>
+            <a
+              href="#contacto"
+              data-cta="formulario"
+              class="inline-flex items-center justify-center rounded-full text-sm font-medium text-sky-100 underline-offset-4 hover:underline"
+            >
+              Prefiero que me llamen
+            </a>
+          </div>
+
+          <ul class="mt-4 grid gap-2 text-sm text-sky-100/90 md:grid-cols-2">
+            {
+              UCM_SEO.contentBlocks.benefits.map((item) => (
+                <li class="flex items-start gap-2">
+                  <span class="mt-[3px] h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="mt-10 flex-1 md:mt-0">
+          <div class="rounded-3xl bg-white/10 p-4 backdrop-blur md:p-6">
+            <h2 class="text-lg font-semibold text-white">Cotiza tu Plan UCM ahora</h2>
+            <p class="mt-1 text-sm text-sky-100/90">
+              Déjanos tus datos y {SITE.name} te contactará personalmente.
+            </p>
+
+            <form
+              id="contacto"
+              class="mt-4 space-y-3"
+              data-netlify="true"
+              name="contacto-ucm"
+              method="POST"
+            >
+              <input type="hidden" name="form-name" value="contacto-ucm" />
+              <label class="block text-sm">
+                <span class="mb-1 block text-sky-100">Nombre completo</span>
+                <input
+                  type="text"
+                  name="nombre"
+                  required
+                  class="w-full rounded-xl border border-sky-500/40 bg-sky-950/40 px-3 py-2 text-sm text-white outline-none ring-0 placeholder:text-sky-200/60 focus:border-emerald-300/70 focus:bg-sky-950/70"
+                  placeholder="Ej: Juan Pérez"
+                />
+              </label>
+              <label class="block text-sm">
+                <span class="mb-1 block text-sky-100">Teléfono</span>
+                <input
+                  type="tel"
+                  name="telefono"
+                  required
+                  class="w-full rounded-xl border border-sky-500/40 bg-sky-950/40 px-3 py-2 text-sm text-white outline-none placeholder:text-sky-200/60 focus:border-emerald-300/70 focus:bg-sky-950/70"
+                  placeholder="+56 9 ..."
+                />
+              </label>
+              <label class="block text-sm">
+                <span class="mb-1 block text-sky-100">Comentario (opcional)</span>
+                <textarea
+                  name="mensaje"
+                  rows={3}
+                  class="w-full rounded-xl border border-sky-500/40 bg-sky-950/40 px-3 py-2 text-sm text-white outline-none placeholder:text-sky-200/60 focus:border-emerald-300/70 focus:bg-sky-950/70"
+                  placeholder="Cuéntanos si es para ti, tu familia o empresa."></textarea>
+              </label>
+
+              <button
+                type="submit"
+                class="mt-2 w-full rounded-full bg-emerald-400 px-4 py-2.5 text-sm font-semibold text-sky-950 shadow-md shadow-emerald-500/40 transition hover:bg-emerald-300"
+              >
+                Enviar mis datos
+              </button>
+
+              <p class="mt-2 text-[11px] leading-snug text-sky-100/80">
+                Al enviar tus datos, autorizas a {SITE.name} para contactarte con fines de orientación
+                y contratación de planes UCM.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POR QUÉ AQUÍ -->
+    <section class="bg-white py-12">
+      <div class="mx-auto max-w-5xl px-4">
+        <!-- IMAGE: EQUIPO UCM -->
+        <div class="w-full my-6">
+          <img
+            src="/images/equipo.jpg"
+            alt="Equipo profesional de Unidad Coronaria Móvil"
+            class="w-full rounded-2xl object-cover"
+          />
+        </div>
+        <h2 class="text-2xl font-semibold text-sky-900">¿Por qué contratar tu Plan UCM aquí?</h2>
+        <p class="mt-2 text-sm text-gray-600">
+          No estás en el sitio corporativo, estás en contacto directo con una ejecutiva oficial que
+          puede gestionar tu afiliación de forma rápida y personalizada.
+        </p>
+
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          {
+            UCM_SEO.contentBlocks.whyHere.map((item) => (
+              <div class="rounded-2xl border border-sky-100 bg-sky-50 p-4">
+                <p class="text-sm text-sky-900">{item}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANES UCM -->
+    <section class="bg-white py-12">
+      <div class="mx-auto max-w-5xl px-4 space-y-10">
+        <h2 class="text-2xl font-semibold text-sky-900">Planes UCM disponibles</h2>
+        <p class="text-sm text-gray-700 max-w-2xl">
+          UCM ofrece alternativas pensadas para familias y adultos mayores, con cobertura
+          extrahospitalaria 24/7 y acceso a servicios complementarios. A continuación puedes revisar
+          los planes principales disponibles para contratación a través de tu ejecutiva oficial.
+        </p>
+
+        <!-- PLAN FAMILIAR -->
+        <div class="rounded-3xl border border-sky-100 bg-sky-50 p-6 md:p-10">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="space-y-3">
+              <h3 class="text-2xl font-bold text-sky-900">Plan Familiar</h3>
+              <p class="text-xl font-semibold text-sky-900">
+                UF 0,59 <span class="text-base font-normal text-sky-700">/ mensual</span>
+              </p>
+              <p class="text-sm text-gray-700">
+                Pensado para familias que quieren contar con ambulancia ante situaciones de riesgo
+                vital, urgencias médicas y apoyo de salud programado.
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <h4 class="text-sm font-semibold text-sky-900">
+                Beneficios habituales en este tipo de plan
+              </h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Rescate en ambulancia frente a emergencias y riesgo vital</li>
+                <li>• Atenciones de salud programadas según la alternativa contratada</li>
+                <li>• Servicios anuales adicionales para complementar la protección</li>
+                <li>• Cobertura en zonas definidas informadas por la ejecutiva al cotizar</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-8 w-full flex justify-center">
+            <a
+              href={LINKS.wa()}
+              class="inline-flex items-center justify-center rounded-full bg-sky-700 px-8 py-3 text-sm font-semibold text-white hover:bg-sky-800 transition"
+            >
+              Cotizar Plan Familiar por WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- PLAN SENIOR -->
+        <div class="rounded-3xl border border-sky-100 bg-sky-50 p-6 md:p-10">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="space-y-3">
+              <h3 class="text-2xl font-bold text-sky-900">Plan Senior</h3>
+              <p class="text-xl font-semibold text-sky-900">
+                UF 1,00 <span class="text-base font-normal text-sky-700">/ mensual</span>
+              </p>
+              <p class="text-sm text-gray-700">
+                Dirigido a personas mayores que requieren apoyo de salud más frecuente, combinando
+                rescate en ambulancia con atenciones médicas y beneficios preferentes.
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <h4 class="text-sm font-semibold text-sky-900">
+                Beneficios habituales en este tipo de plan
+              </h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Rescates en ambulancia ante urgencias y descompensaciones</li>
+                <li>
+                  • Atenciones médicas y de especialidad con copago preferente o $0, según
+                  condiciones
+                </li>
+                <li>• Cupos para exámenes de laboratorio y radiología en el año</li>
+                <li>• Evaluaciones y controles pensados para adultos mayores</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-8 w-full flex justify-center">
+            <a
+              href={LINKS.wa()}
+              class="inline-flex items-center justify-center rounded-full bg-sky-800 px-8 py-3 text-sm font-semibold text-white hover:bg-sky-900 transition"
+            >
+              Cotizar Plan Senior por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASOS DE AFILIACIÓN -->
+    <section class="bg-sky-50 py-12">
+      <div class="mx-auto max-w-5xl px-4 space-y-8">
+        <h2 class="text-2xl font-semibold text-sky-900">Cómo afiliarte a UCM</h2>
+
+        <p class="text-sm text-gray-700 max-w-2xl">
+          La afiliación a UCM es un proceso rápido y directo que puedes completar en pocos minutos
+          mediante tu ejecutiva oficial. Estos son los pasos habituales:
+        </p>
+
+        <ol class="space-y-4 text-gray-700 text-sm">
+          <li>
+            <strong class="text-sky-900">1. Contacto directo:</strong> Escríbele por WhatsApp o realiza
+            una llamada a tu ejecutiva.
+          </li>
+          <li>
+            <strong class="text-sky-900">2. Validación inicial:</strong> Se revisan datos básicos y se
+            verifica tu zona de cobertura.
+          </li>
+          <li>
+            <strong class="text-sky-900">3. Elección del plan:</strong> La ejecutiva te orienta para elegir
+            la mejor alternativa según tus necesidades.
+          </li>
+          <li>
+            <strong class="text-sky-900">4. Activación:</strong> El plan queda activo una vez completado
+            el proceso administrativo.
+          </li>
+        </ol>
+
+        <div class="pt-4">
+          <a
+            href={LINKS.wa()}
+            class="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-3 text-sm font-semibold text-sky-900 hover:bg-emerald-400 transition"
+          >
+            Iniciar afiliación por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- COBERTURA / INFO -->
+    <section class="bg-sky-50 py-12">
+      <div class="mx-auto max-w-5xl px-4 space-y-6">
+        <h2 class="text-2xl font-semibold text-sky-900">
+          {UCM_SEO.headings.H2[0]}
+        </h2>
+        <!-- IMAGE: COBERTURA UCM -->
+        <img
+          src="/images/cobertura.png"
+          alt="Zonas de cobertura de UCM en la Región Metropolitana y Valparaíso"
+          class="w-full rounded-2xl mb-4 object-cover"
+        />
+        <p class="text-sm text-gray-700">
+          UCM ofrece atención médica extrahospitalaria con cobertura principal en Región
+          Metropolitana y Valparaíso. A través de {SITE.name}, puedes cotizar el plan que mejor se
+          ajuste a tu familia, adultos mayores o empresa.
+        </p>
+        <h3 class="text-lg font-semibold text-sky-900">
+          {UCM_SEO.headings.H3[0]}
+        </h3>
+        <p class="text-sm text-gray-700">
+          Consulta directamente por tu comuna y tipo de cobertura. Tu ejecutiva te orientará sobre
+          los planes disponibles y el valor mensual referencial.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQS -->
+    <section id="preguntas" class="bg-white py-12">
+      <div class="mx-auto max-w-5xl px-4">
+        <h2 class="text-2xl font-semibold text-sky-900">Preguntas frecuentes sobre Planes UCM</h2>
+        <div class="mt-6 space-y-3">
+          {
+            UCM_SEO.faqs.map((faq) => (
+              <details class="group rounded-2xl border border-sky-100 bg-sky-50 p-4">
+                <summary class="flex cursor-pointer list-none items-center justify-between text-sm font-medium text-sky-900">
+                  <span>{faq.q}</span>
+                  <span class="text-xs text-sky-500 group-open:hidden">+</span>
+                  <span class="hidden text-xs text-sky-500 group-open:inline">−</span>
+                </summary>
+                <p class="mt-2 text-sm text-gray-700">{faq.a}</p>
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- SITIO AUTORIZADO -->
+    <section class="bg-white py-10">
+      <div class="mx-auto max-w-5xl px-4 text-center">
+        <img src="/logo.png" alt="Logo UCM - Autorización Comercial" class="h-12 mx-auto mb-4" />
+        <p class="text-sm text-gray-700 max-w-xl mx-auto">
+          Este es un sitio autorizado por <strong>Unidad Coronaria Móvil</strong> para fines de información
+          y afiliación comercial mediante ejecutivas oficiales. Para información institucional visite:
+          <a href="https://www.ucmchile.cl" class="underline text-sky-700" target="_blank"
+            >ucmchile.cl</a
+          >.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER / DISCLAIMER -->
+    <footer class="border-t border-sky-100 bg-sky-950/95 py-6 text-sky-100">
+      <div
+        class="mx-auto flex max-w-5xl flex-col gap-3 px-4 text-xs md:flex-row md:items-center md:justify-between"
+      >
+        <p>
+          Sitio administrado por {SITE.name}. Esta página no es el sitio web corporativo de UCM,
+          sino un canal de contacto para orientación y contratación de planes.
+        </p>
+        <p class="text-sky-200">
+          &copy; {new Date().getFullYear()} · Kümera Servicios Digitales
+        </p>
+      </div>
+    </footer>
+  </main>
+</BaseLayout>

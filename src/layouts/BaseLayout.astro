@@ -1,0 +1,69 @@
+---
+// src/layouts/BaseLayout.astro
+import "../styles/global.css";
+import { SITE } from "../data/site";
+import { UCM_SEO } from "../data/ucm-seo";
+import FloatingWspp from "../components/FloatingWspp.astro";
+import Header from "../components/Header.astro";
+
+const canonical = SITE.domain.replace(/\/+$/, "");
+
+const title =
+  SITE.title || UCM_SEO.title(SITE.name || "Ejecutiva UCM");
+
+const description =
+  SITE.description || UCM_SEO.description(SITE.city || "Santiago y V Región");
+
+const image = SITE.ogImage || "/images/og-default.jpg";
+
+const schema = UCM_SEO.schema(canonical, SITE.name, SITE.phone, SITE.city);
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta
+      name="keywords"
+      content={[
+        ...UCM_SEO.primaryKeywords,
+        ...UCM_SEO.transactionalKeywords
+      ].join(", ")}
+    />
+
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={canonical + image} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="es_CL" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={canonical + image} />
+
+    <link rel="icon" href="/favicon.png" />
+    <link rel="preload" href={image} as="image" />
+
+    <!-- Schema.org -->
+    <script type="application/ld+json" is:inline>
+      {JSON.stringify(schema)}
+    </script>
+  </head>
+
+  <body class="bg-white text-gray-900 antialiased">
+    <Header />
+    <FloatingWspp />
+    <slot />
+  </body>
+</html>

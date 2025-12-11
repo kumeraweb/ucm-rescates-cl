@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { SITE, LINKS } from '../data/site'
+---
+
+<BaseLayout>
+  <main class="min-h-screen bg-white text-sky-900">
+    <!-- HERO -->
+    <section class="relative bg-sky-900 text-white py-20">
+      <div class="absolute inset-0 -z-10 opacity-30">
+        <img
+          src="/images/ambulance.jpg"
+          alt="Ambulancia UCM para emergencias 24/7"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div class="mx-auto max-w-4xl px-4 text-center space-y-6">
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">
+          Teléfono UCM · Unidad Coronaria Móvil
+        </h1>
+        <p class="text-sky-100 max-w-2xl mx-auto text-sm md:text-base">
+          Atención extrahospitalaria, rescate en ambulancia y orientación directa con tu ejecutiva
+          oficial UCM.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 pt-4">
+          <a
+            href={LINKS.wa()}
+            class="rounded-full bg-emerald-400 text-sky-900 font-semibold px-6 py-3 text-sm hover:bg-emerald-300 transition"
+          >
+            WhatsApp directo con {SITE.name}
+          </a>
+
+          <a
+            href={LINKS.call()}
+            class="rounded-full bg-white/20 border border-white/30 px-6 py-3 text-sm font-semibold text-white hover:bg-white/30 transition"
+          >
+            Llamar ahora
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="py-12 bg-white">
+      <div class="mx-auto max-w-4xl px-4 space-y-4">
+        <h2 class="text-2xl font-semibold text-sky-900">Número de contacto UCM</h2>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          Si estás buscando el teléfono de <strong>Unidad Coronaria Móvil (UCM)</strong>, aquí
+          puedes recibir atención inmediata mediante tu <strong>ejecutiva oficial</strong>. A
+          diferencia del teléfono corporativo, este canal permite <strong
+            >afiliarte a los planes UCM</strong
+          >, resolver dudas y recibir orientación directa.
+        </p>
+
+        <div class="mt-6 p-6 rounded-3xl bg-sky-50 border border-sky-100">
+          <p class="text-sm text-sky-900 font-semibold">Teléfono ejecutiva oficial UCM:</p>
+          <p class="text-2xl font-bold text-sky-900 mt-1">
+            <a href={LINKS.call()}>{LINKS.call()}</a>
+          </p>
+          <p class="mt-2 text-sm text-gray-700">
+            También disponible por WhatsApp para atención inmediata:
+          </p>
+          <a
+            href={LINKS.wa()}
+            class="inline-flex mt-3 rounded-full bg-sky-700 text-white px-6 py-2 text-sm font-semibold hover:bg-sky-800 transition"
+          >
+            Enviar mensaje por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIA ENTRE ESTE SITIO Y EL CORPORATIVO -->
+    <section class="py-12 bg-sky-50">
+      <div class="mx-auto max-w-4xl px-4 space-y-4">
+        <h2 class="text-2xl font-semibold text-sky-900">¿Es este el teléfono oficial de UCM?</h2>
+
+        <p class="text-sm text-gray-700">
+          Este es el <strong>canal autorizado</strong> de contacto para afiliación, orientación de planes
+          y consultas relacionadas con cobertura UCM. A través de este sitio, tu ejecutiva
+          <strong>{SITE.name}</strong> te ayudará en todo el proceso.
+        </p>
+
+        <p class="text-sm text-gray-700">
+          Para información institucional, el sitio corporativo es:
+          <a href="https://www.ucmchile.cl" target="_blank" class="text-sky-800 underline">
+            ucmchile.cl
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="py-12 bg-white">
+      <div class="mx-auto max-w-4xl px-4 space-y-6">
+        <h2 class="text-2xl font-semibold text-sky-900">¿Qué puedo hacer llamando a UCM?</h2>
+
+        <ul class="space-y-3 text-sm text-gray-700">
+          <li>
+            • Afiliarte a un <strong>Plan Familiar UCM</strong> o <strong>Plan Senior UCM</strong>.
+          </li>
+          <li>• Consultar precios y alternativas según tu comuna.</li>
+          <li>• Resolver dudas sobre cobertura en Región Metropolitana y V Región.</li>
+          <li>• Acceder a orientación para situaciones de salud y rescate extrahospitalario.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-16 bg-sky-900 text-white text-center">
+      <h2 class="text-2xl font-semibold">Habla ahora con tu ejecutiva UCM</h2>
+      <p class="text-sky-100 mt-2 text-sm max-w-xl mx-auto">
+        Atención personalizada, rápida y directa. Disponible para afiliaciones, consultas y
+        orientación.
+      </p>
+
+      <div class="flex justify-center gap-4 mt-6">
+        <a
+          href={LINKS.wa()}
+          class="rounded-full bg-emerald-400 text-sky-900 px-8 py-3 text-sm font-semibold hover:bg-emerald-300 transition"
+        >
+          WhatsApp inmediato
+        </a>
+        <a
+          href={LINKS.call()}
+          class="rounded-full bg-white/20 border border-white/30 px-8 py-3 text-sm font-semibold hover:bg-white/30 transition"
+        >
+          Llamar por teléfono
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
